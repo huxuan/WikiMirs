@@ -16,5 +16,5 @@ VERSION = 'development'
 DBNAME = 'wikimirs'
 
 # Collection name for generalized and raw index
-COLLECTION_NAME_TERM = 'term'
-COLLECTION_NAME_ORIG = 'orig'
+COLLECTION_NAME_GEN = 'index_gen'
+COLLECTION_NAME_RAW = 'index_raw'
