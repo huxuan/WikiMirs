@@ -1,0 +1,781 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.8/ http://www.mediawiki.org/xml/export-0.8.xsd" version="0.8" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <base>http://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.21wmf4</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Wikipedia talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="100" case="first-letter">Portal</namespace>
+      <namespace key="101" case="first-letter">Portal talk</namespace>
+      <namespace key="108" case="first-letter">Book</namespace>
+      <namespace key="109" case="first-letter">Book talk</namespace>
+      <namespace key="446" case="first-letter">Education Program</namespace>
+      <namespace key="447" case="first-letter">Education Program talk</namespace>
+      <namespace key="710" case="first-letter">TimedText</namespace>
+      <namespace key="711" case="first-letter">TimedText talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>List of formulas in Riemannian geometry</title>
+    <ns>0</ns>
+    <id>5783569</id>
+    <revision>
+      <id>518289642</id>
+      <parentid>518282595</parentid>
+      <timestamp>2012-10-17T09:22:16Z</timestamp>
+      <contributor>
+        <username>Quondum</username>
+        <id>12331483</id>
+      </contributor>
+      <comment>More usual symbol for Kulkarni–Nomizu product</comment>
+      <text xml:space="preserve" bytes="14280">This is a list of [[formula]]s encountered in [[Riemannian geometry]].
+
+==Christoffel symbols, covariant derivative==
+
+
+In a smooth [[coordinate chart]], the [[Christoffel symbols]] of the first kind are given by
+
+:&lt;math&gt;\Gamma_{kij}=\frac12 \left(
+        \frac{\partial}{\partial x^j} g_{ki}
+        +\frac{\partial}{\partial x^i} g_{kj}
+        -\frac{\partial}{\partial x^k} g_{ij}
+        \right)
+        =\frac12 \left( g_{ki,j} + g_{kj,i} - g_{ij,k} \right) \,,
+&lt;/math&gt;
+
+and the Christoffel symbols of the second kind by
+
+:&lt;math&gt;\begin{align}
+        \Gamma^m{}_{ij} &amp;= g^{mk}\Gamma_{kij}\\
+        &amp;=\frac12\, g^{mk} \left(
+        \frac{\partial}{\partial x^j} g_{ki}
+        +\frac{\partial}{\partial x^i} g_{kj}
+        -\frac{\partial}{\partial x^k} g_{ij}
+        \right)
+        =\frac12\, g^{mk} \left( g_{ki,j} + g_{kj,i} - g_{ij,k} \right) \,.
+        \end{align}
+&lt;/math&gt;
+
+Here &lt;math&gt;g^{ij}&lt;/math&gt; is the [[Inverse (mathematics)|inverse]]{{dn|date=June 2012}} matrix to the metric tensor &lt;math&gt;g_{ij}&lt;/math&gt;.  In other words,
+
+:&lt;math&gt;
+\delta^i{}_j = g^{ik}g_{kj}
+&lt;/math&gt;
+
+and thus
+
+:&lt;math&gt;
+n = \delta^i{}_i = g^i{}_i = g^{ij}g_{ij}
+&lt;/math&gt;
+
+is the dimension of the [[manifold]].
+
+Christoffel symbols satisfy the symmetry relation
+
+:&lt;math&gt;
+\Gamma^i{}_{jk}=\Gamma^i{}_{kj} \,,
+&lt;/math&gt;
+
+which is equivalent to the torsion-freeness of the [[Levi-Civita connection]].
+
+The contracting relations on the Christoffel symbols are given by
+
+:&lt;math&gt;\Gamma^i{}_{ki}=\frac{1}{2} g^{im}\frac{\partial g_{im}}{\partial x^k}=\frac{1}{2g} \frac{\partial g}{\partial x^k} = \frac{\partial \log \sqrt{|g|}}{\partial x^k} \ &lt;/math&gt;
+
+and
+
+:&lt;math&gt;g^{k\ell}\Gamma^i{}_{k\ell}=\frac{-1}{\sqrt{|g|}} \;\frac{\partial\left(\sqrt{|g|}\,g^{ik}\right)} {\partial x^k}&lt;/math&gt;
+
+where |''g''| is the absolute value of the [[determinant]] of the metric tensor &lt;math&gt;g_{ik}\ &lt;/math&gt;.  These are useful when dealing with divergences and Laplacians (see below).
+
+The [[covariant derivative]] of a [[vector field]] with components &lt;math&gt;v^i&lt;/math&gt; is given by:
+
+:&lt;math&gt;
+v^i {}_{;j}=\nabla_j v^i=\frac{\partial v^i}{\partial x^j}+\Gamma^i{}_{jk}v^k
+&lt;/math&gt;
+
+and similarly the covariant derivative of a &lt;math&gt;(0,1)&lt;/math&gt;-[[tensor field]] with components &lt;math&gt;v_i&lt;/math&gt; is given by:
+
+:&lt;math&gt;
+v_{i;j}=\nabla_j v_i=\frac{\partial v_i}{\partial x^j}-\Gamma^k{}_{ij} v_k
+&lt;/math&gt;
+
+For a &lt;math&gt;(2,0)&lt;/math&gt;-[[tensor field]] with components &lt;math&gt;v^{ij}&lt;/math&gt; this becomes
+
+:&lt;math&gt;
+v^{ij}{}_{;k}=\nabla_k v^{ij}=\frac{\partial v^{ij}}{\partial x^k} +\Gamma^i{}_{k\ell}v^{\ell j}+\Gamma^j{}_{k\ell}v^{i\ell}
+&lt;/math&gt;
+
+and likewise for tensors with more indices.
+
+The covariant derivative of a function (scalar) &lt;math&gt;\phi&lt;/math&gt; is just its usual differential:
+
+:&lt;math&gt;
+\nabla_i \phi=\phi_{;i}=\phi_{,i}=\frac{\partial \phi}{\partial x^i}
+&lt;/math&gt;
+
+Because the [[Levi-Civita connection]] is metric-compatible, the covariant derivatives of metrics vanish,
+
+:&lt;math&gt;
+\nabla_k g_{ij} = \nabla_k g^{ij} = 0
+&lt;/math&gt;
+
+The [[geodesic]] &lt;math&gt;X(t)&lt;/math&gt; starting at the origin with initial speed &lt;math&gt;v^i&lt;/math&gt; has Taylor expansion in the chart:
+
+:&lt;math&gt;
+X(t)^i=tv^i-\frac{t^2}{2}\Gamma^i{}_{jk}v^jv^k+O(t^2)
+&lt;/math&gt;
+
+==Curvature tensors==
+===Riemann curvature tensor===
+
+If one defines the [[Riemann curvature tensor|curvature operator]] as &lt;math&gt;R(U,V)W=\nabla_U \nabla_V W - \nabla_V \nabla_U W -\nabla_{[U,V]}W&lt;/math&gt;
+and the coordinate components of the &lt;math&gt;(1,3)&lt;/math&gt;-[[Riemann curvature tensor]] by &lt;math&gt;(R(U,V)W)^\ell=R^\ell{}_{ijk}W^iU^jV^k&lt;/math&gt;, then these components are given by:
+
+:&lt;math&gt;
+R^\ell{}_{ijk}=
+\frac{\partial}{\partial x^j} \Gamma^\ell{}_{ik}-\frac{\partial}{\partial x^k}\Gamma^\ell{}_{ij}
++(\Gamma^\ell{}_{js}\Gamma_{ik}^s-\Gamma^\ell{}_{ks}\Gamma^s{}_{ij})
+&lt;/math&gt;
+
+where n denotes the dimension of the manifold.  Lowering indices with &lt;math&gt;R_{\ell ijk}=g_{\ell s}R^s{}_{ijk}&lt;/math&gt; one gets
+
+:&lt;math&gt;R_{ik\ell m}=\frac{1}{2}\left(
+\frac{\partial^2g_{im}}{\partial x^k \partial x^\ell} 
++ \frac{\partial^2g_{k\ell}}{\partial x^i \partial x^m}
+- \frac{\partial^2g_{i\ell}}{\partial x^k \partial x^m}
+- \frac{\partial^2g_{km}}{\partial x^i \partial x^\ell} \right)
++g_{np} \left(
+\Gamma^n{}_{k\ell} \Gamma^p{}_{im} - 
+\Gamma^n{}_{km} \Gamma^p{}_{i\ell} \right).
+\ &lt;/math&gt;
+
+The symmetries of the tensor are
+
+:&lt;math&gt;R_{ik\ell m}=R_{\ell mik}\ &lt;/math&gt; and &lt;math&gt;R_{ik\ell m}=-R_{ki\ell m}=-R_{ikm\ell}.\ &lt;/math&gt;
+
+That is, it is symmetric in the exchange of the first and last pair of indices, and antisymmetric in the flipping of a pair.
+
+The cyclic permutation sum (sometimes called first Bianchi identity) is
+
+:&lt;math&gt;R_{ik\ell m}+R_{imk\ell}+R_{i\ell mk}=0.\ &lt;/math&gt;
+
+The (second) '''[[Bianchi identity]]''' is
+
+:&lt;math&gt;\nabla_m R^n {}_{ik\ell} + \nabla_\ell R^n {}_{imk} + \nabla_k R^n {}_{i\ell m}=0,\ &lt;/math&gt;
+
+that is,
+
+:&lt;math&gt; R^n {}_{ik\ell;m} + R^n {}_{imk;\ell} + R^n {}_{i\ell m;k}=0 \ &lt;/math&gt;
+
+which amounts to a cyclic permutation sum of the last three indices, leaving the first two fixed.
+
+===Ricci and scalar curvatures===
+
+Ricci and scalar curvatures are contractions of the Riemann tensor.  They simplify the Riemann tensor, but contain less information.
+
+The [[Ricci curvature]] tensor is essentially the unique nontrivial way of contracting the Riemann tensor:
+
+:&lt;math&gt;
+R_{ij}=R^\ell{}_{i\ell j}=g^{\ell m}R_{i\ell jm}=g^{\ell m}R_{\ell imj}
+=\frac{\partial\Gamma^\ell{}_{ij}}{\partial x^\ell} - \frac{\partial\Gamma^\ell{}_{i\ell}}{\partial x^j} + \Gamma^\ell{}_{ij} \Gamma^m{}_{\ell m} - \Gamma^m{}_{i\ell}\Gamma^\ell_{jm}.\ 
+&lt;/math&gt;
+
+The Ricci tensor &lt;math&gt;R_{ij}&lt;/math&gt; is symmetric.
+
+By the contracting relations on the Christoffel symbols, we have
+
+:&lt;math&gt;
+R_{ik}=\frac{\partial\Gamma^\ell{}_{ik}}{\partial x^\ell} - \Gamma^m{}_{i\ell}\Gamma^\ell{}_{km} - \nabla_k\left(\frac{\partial}{\partial x^i}\left(\log\sqrt{|g|}\right)\right).\ 
+&lt;/math&gt;
+
+The [[scalar curvature]] is the trace of the Ricci curvature,
+
+:&lt;math&gt;
+R=g^{ij}R_{ij}=g^{ij}g^{\ell m}R_{i\ell jm}
+&lt;/math&gt;.
+
+The &quot;gradient&quot; of the scalar curvature follows from the Bianchi identity ([[Proofs involving Christoffel symbols#Proof 1|proof]]):
+
+:&lt;math&gt;\nabla_\ell R^\ell {}_m = {1 \over 2} \nabla_m R, \ &lt;/math&gt;
+
+that is,
+
+:&lt;math&gt; R^\ell {}_{m;\ell} = {1 \over 2} R_{;m}. \ &lt;/math&gt;
+
+===Einstein tensor===
+The [[Einstein tensor]] ''G&lt;sup&gt;ab&lt;/sup&gt;'' is defined in terms of the Ricci tensor ''R&lt;sup&gt;ab&lt;/sup&gt;'' and the Ricci scalar ''R'',
+
+:&lt;math&gt; G^{ab} = R^{ab} - {1 \over 2} g^{ab} R \ &lt;/math&gt;
+
+where ''g'' is the metric tensor.  
+
+The Einstein tensor is symmetric, with a vanishing divergence ([[Proofs involving Christoffel symbols#Proof 2|proof]]) which is due to the Bianchi identity:
+
+:&lt;math&gt; \nabla_a G^{ab} = G^{ab} {}_{;a} = 0. \ &lt;/math&gt;
+
+===Weyl tensor===
+The '''[[Weyl tensor]]''' is given by
+
+:&lt;math&gt;C_{ik\ell m}=R_{ik\ell m} + \frac{1}{n-2}\left(
+- R_{i\ell}g_{km}  
++ R_{im}g_{k\ell} 
++ R_{k\ell}g_{im}
+- R_{km}g_{i\ell} \right)
++ \frac{1}{(n-1)(n-2)} R \left(
+g_{i\ell}g_{km} - g_{im}g_{k\ell} \right),\ &lt;/math&gt;
+
+where &lt;math&gt;n&lt;/math&gt; denotes the dimension of the Riemannian manifold.
+
+Thw Weyl tensor satisfies the first (algebraic) Bianchi identity:
+
+:&lt;math&gt;C_{ijkl} + C_{kijl} + C_{jkil} = 0 .&lt;/math&gt;
+
+The Weyl tensor is a symmetric product of alternating 2-forms,
+
+:&lt;math&gt; C_{ijkl} = -C_{jikl} \qquad C_{ijkl} = C_{klij} ,&lt;/math&gt;
+
+just like the Riemann tensor.  Moreover, taking the trace over any two indices gives zero,
+
+:&lt;math&gt; C^i{}_{jki} = 0 &lt;/math&gt;
+
+The Weyl tensor vanishes (&lt;math&gt;C=0&lt;/math&gt;) if and only if a manifold &lt;math&gt;M&lt;/math&gt; of dimension &lt;math&gt;n \geq 4&lt;/math&gt; is locally conformally flat.  In other words, &lt;math&gt;M&lt;/math&gt; can be covered by coordinate systems in which the metric &lt;math&gt;ds^2&lt;/math&gt; satisfies
+
+:&lt;math&gt;ds^2 = f^2\left(dx_1^2 + dx_2^2 + \ldots dx_n^2\right)&lt;/math&gt;
+
+This is essentially because &lt;math&gt;C^i{}_{jkl}&lt;/math&gt; is invariant under conformal changes.
+
+==Gradient, divergence, Laplace–Beltrami operator==
+
+The [[gradient#The gradient on manifolds|gradient]] of a function &lt;math&gt;\phi&lt;/math&gt; is obtained by raising the index of the differential &lt;math&gt;\partial_i\phi dx^i&lt;/math&gt;, whose components are given by:
+
+:&lt;math&gt;\nabla^i \phi=\phi^{;i}=g^{ik}\phi_{;k}=g^{ik}\phi_{,k}=g^{ik}\partial_k \phi=g^{ik}\frac{\partial \phi}{\partial x^k}
+&lt;/math&gt;
+
+The [[divergence]] of a vector field with components &lt;math&gt;V^m&lt;/math&gt; is
+ 
+:&lt;math&gt;\nabla_m V^m = \frac{\partial V^m}{\partial x^m} + V^k \frac{\partial \log \sqrt{|g|}}{\partial x^k} = \frac{1}{\sqrt{|g|}} \frac{\partial (V^m\sqrt{|g|})}{\partial x^m}.\ &lt;/math&gt;
+
+The [[Laplace–Beltrami operator]] acting on a function &lt;math&gt;f&lt;/math&gt; is given by the divergence of the gradient:
+
+:&lt;math&gt;
+\begin{align}
+\Delta f &amp;= \nabla_i \nabla^i f 
+= \frac{1}{\sqrt{\det g}} \frac{\partial }{\partial x^j}\left(g^{jk}\sqrt{\det
+g}\frac{\partial f}{\partial x^k}\right) \\
+ &amp;=
+g^{jk}\frac{\partial^2 f}{\partial x^j \partial x^k} + \frac{\partial g^{jk}}{\partial x^j} \frac{\partial
+f}{\partial x^k} + \frac12 g^{jk}g^{il}\frac{\partial g_{il}}{\partial x^j}\frac{\partial f}{\partial x^k}
+= g^{jk}\frac{\partial^2 f}{\partial x^j \partial x^k} - g^{jk}\Gamma^l{}_{jk}\frac{\partial f}{\partial x^l}
+\end{align}
+&lt;/math&gt; 
+
+The divergence of an [[antisymmetric tensor]] field of type &lt;math&gt;(2,0)&lt;/math&gt; simplifies to 
+
+:&lt;math&gt;\nabla_k A^{ik}= \frac{1}{\sqrt{|g|}} \frac{\partial (A^{ik}\sqrt{|g|})}{\partial x^k}.\ &lt;/math&gt;
+
+The Hessian of a map &lt;math&gt;\phi: M \rightarrow N &lt;/math&gt; is given by
+:&lt;math&gt; \left( \nabla \left( d \phi\right) \right) _{ij} ^\gamma= \frac{\partial ^2 \phi ^\gamma}{\partial x^i \partial x^j}- ^M \Gamma  ^k{}_{ij} \frac{\partial \phi ^\gamma}{\partial x^k} + ^N \Gamma ^{\gamma}{}_{\alpha \beta} \frac{\partial \phi ^\alpha}{\partial x^i}\frac{\partial \phi ^\beta}{\partial x^j}.&lt;/math&gt;
+
+==Kulkarni–Nomizu product==
+
+The [[Kulkarni–Nomizu product]] is an important tool for constructing new tensors from existing tensors on a Riemannian manifold.  Let &lt;math&gt;h&lt;/math&gt; and &lt;math&gt;k&lt;/math&gt; be symmetric covariant 2-tensors.  In coordinates,
+
+:&lt;math&gt;h_{ij} = h_{ji} \qquad \qquad k_{ij} = k_{ji} &lt;/math&gt;
+
+Then we can multiply these in a sense to get a new covariant 4-tensor, which is often denoted &lt;math&gt; h {~\wedge\!\!\!\!\!\!\bigcirc~} k&lt;/math&gt;.  The defining formula is
+
+&lt;math&gt;\left(h {~\wedge\!\!\!\!\!\!\bigcirc~} k\right)_{ijkl} = h_{ik}k_{jl} + h_{jl}k_{ik} - h_{il}k_{jk} - h_{jk}k_{il}&lt;/math&gt;
+
+Clearly, the product satisfies
+
+:&lt;math&gt;h {~\wedge\!\!\!\!\!\!\bigcirc~} k = k {~\wedge\!\!\!\!\!\!\bigcirc~} h&lt;/math&gt;
+
+==In an inertial frame==
+
+An orthonormal [[inertial frame]] is a coordinate chart such that, at the origin, one has the relations &lt;math&gt;g_{ij}=\delta_{ij}&lt;/math&gt; and &lt;math&gt;\Gamma^i{}_{jk}=0&lt;/math&gt; (but these may not hold at other points in the frame).
+In such a frame, the expression for several operators is simpler. Note that the formulae given below are valid ''at the origin of the frame only''.
+
+:&lt;math&gt;R_{ik\ell m}=\frac{1}{2}\left(
+\frac{\partial^2g_{im}}{\partial x^k \partial x^\ell} 
++ \frac{\partial^2g_{k\ell}}{\partial x^i \partial x^m}
+- \frac{\partial^2g_{i\ell}}{\partial x^k \partial x^m}
+- \frac{\partial^2g_{km}}{\partial x^i \partial x^\ell} \right)
+&lt;/math&gt;
+
+==Under a conformal change==
+
+Let &lt;math&gt;g&lt;/math&gt; be a Riemannian metric on a smooth manifold &lt;math&gt;M&lt;/math&gt;, and &lt;math&gt;\varphi&lt;/math&gt; a smooth real-valued function on &lt;math&gt;M&lt;/math&gt;.  Then
+
+:&lt;math&gt;\tilde g = e^{2\varphi}g &lt;/math&gt;
+
+is also a Riemannian metric on &lt;math&gt;M&lt;/math&gt;.  We say that &lt;math&gt;\tilde g&lt;/math&gt; is conformal to &lt;math&gt;g&lt;/math&gt;.  Evidently, conformality of metrics is an equivalence relation.  Here are some formulas for conformal changes in tensors associated with the metric.  (Quantities marked with a tilde will be associated with &lt;math&gt;\tilde g&lt;/math&gt;, while those unmarked with such will be associated with &lt;math&gt;g&lt;/math&gt;.)
+
+:&lt;math&gt;\tilde g_{ij} = e^{2\varphi}g_{ij} &lt;/math&gt;
+
+:&lt;math&gt;\tilde \Gamma^k{}_{ij} = \Gamma^k{}_{ij}+ \delta^k_i\partial_j\varphi + \delta^k_j\partial_i\varphi-g_{ij}\nabla^k\varphi &lt;/math&gt;
+
+Note that the difference between the Christoffel symbols of two different metrics always form the components of a tensor.
+
+:&lt;math&gt;d\tilde V = e^{n\varphi}dV&lt;/math&gt;
+
+Here &lt;math&gt;dV&lt;/math&gt; is the Riemannian volume element.
+
+:&lt;math&gt;\tilde R_{ijkl} = e^{2\varphi}\left( R_{ijkl} - \left[ g {~\wedge\!\!\!\!\!\!\bigcirc~} \left( \nabla\partial\varphi - \partial\varphi\partial\varphi + \frac{1}{2}\|\nabla\varphi\|^2g    \right)\right]_{ijkl}  \right)&lt;/math&gt;
+
+Here &lt;math&gt;{~\wedge\!\!\!\!\!\!\bigcirc~}&lt;/math&gt; is the Kulkarni–Nomizu product defined earlier in this article.  The symbol &lt;math&gt;\partial_k&lt;/math&gt; denotes partial derivative, while &lt;math&gt;\nabla_k&lt;/math&gt; denotes covariant derivative.
+
+:&lt;math&gt;\tilde R_{ij} = R_{ij} - (n-2)\left[ \nabla_i\partial_j \varphi - (\partial_i \varphi)(\partial_j \varphi) \right] + \left( \triangle \varphi - (n-2)\|\nabla \varphi\|^2 \right)g_{ij} &lt;/math&gt;
+
+Beware that here the Laplacian &lt;math&gt;\triangle &lt;/math&gt; is minus the trace of the Hessian on functions,
+
+:&lt;math&gt;\triangle f = -\nabla^i\partial_i f&lt;/math&gt;
+
+Thus the operator &lt;math&gt;-\triangle&lt;/math&gt; is elliptic because the metric &lt;math&gt;g&lt;/math&gt; is Riemannian.
+
+:&lt;math&gt;\tilde\triangle f = e^{-2\varphi}\left(\triangle f -(n-2)\nabla^k\varphi\nabla_kf\right)&lt;/math&gt;
+
+:&lt;math&gt;\tilde R  = e^{-2\varphi}\left(R + 2(n-1)\triangle\varphi - (n-2)(n-1)\|\nabla\varphi\|^2\right) &lt;/math&gt;
+
+If the dimension &lt;math&gt;n &gt; 2&lt;/math&gt;, then this simplifies to
+
+:&lt;math&gt;\tilde R = e^{-2\varphi}\left[R + \frac{4(n-1)}{(n-2)}e^{-(n-2)\varphi/2}\triangle\left( e^{(n-2)\varphi/2} \right) \right] &lt;/math&gt;
+
+:&lt;math&gt;\tilde C^i{}_{jkl} = C^i{}_{jkl}&lt;/math&gt;
+
+We see that the (3,1) Weyl tensor is invariant under conformal changes.
+
+Let &lt;math&gt;\omega&lt;/math&gt; be a differential &lt;math&gt;p&lt;/math&gt;-form.  Let &lt;math&gt;*&lt;/math&gt; be the Hodge star, and &lt;math&gt;\delta&lt;/math&gt; the codifferential.  Under a conformal change, these satisfy
+
+:&lt;math&gt;\tilde * = e^{(n-2p)\varphi}*&lt;/math&gt;
+
+:&lt;math&gt;\left[\tilde\delta\omega\right](v_1 , v_2 , \ldots , v_{p-1}) = e^{-2\varphi}\left[  \delta\omega - (n-2p)\omega\left(\nabla\varphi, v_1, v_2, \ldots , v_{p-1}\right) \right]&lt;/math&gt;
+
+==See also==
+
+*[[Liouville equations]]
+
+[[Category:Riemannian geometry|formulas]]
+[[Category:Mathematics-related lists|Riemannian geometry formulas]]</text>
+      <sha1>6npg3kbo1670nhht2uiwzbfwwh31zxg</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>List of price index formulas</title>
+    <ns>0</ns>
+    <id>13186787</id>
+    <revision>
+      <id>508269700</id>
+      <parentid>508261687</parentid>
+      <timestamp>2012-08-20T10:45:00Z</timestamp>
+      <contributor>
+        <username>Duncan7670</username>
+        <id>2218524</id>
+      </contributor>
+      <comment>Update to IMF paper url</comment>
+      <text xml:space="preserve" bytes="7425">A number of different formulas, more than hundred, have been proposed as means of calculating [[price index]]es.  While price index formulas all use price and possibly quantity data, they aggregate these in different ways.  A price index aggregates various combinations of base period prices (&lt;math&gt;p_0&lt;/math&gt;), later period prices (&lt;math&gt;p_t&lt;/math&gt;), base period quantities (&lt;math&gt;q_0&lt;/math&gt;), and later period quantities (&lt;math&gt;q_t&lt;/math&gt;). Price index numbers are usually defined either in terms of (actual or hypothetical) expenditures (expenditure = price * quantity) or as different weighted averages of price relatives (&lt;math&gt;p_t/p_0&lt;/math&gt;). These tell the relative change of the price in question. Two of the most commonly used price index formulas were defined by German economists and statisticians [[Étienne Laspeyres]] and [[Hermann Paasche]], both around 1875 when investigating price changes in Germany.
+
+==Laspeyres==
+
+:&lt;math&gt;P_L = \frac{\sum (p_{t}\cdot q_{0})}{\sum (p_{0}\cdot q_{0})}&lt;/math&gt;.
+
+This compares the price of the old basket of goods &lt;math&gt;q_0&lt;/math&gt; for the old and new prices.
+
+==Paasche==
+
+:&lt;math&gt;P_P = \frac{\sum (p_{t}\cdot q_{t})}{\sum (p_{0}\cdot q_{t})}&lt;/math&gt;.
+
+This compares the price of the new basket of goods &lt;math&gt;q_t&lt;/math&gt; for the old and new prices.
+
+==Unweighted indexes==
+Unweighted price indexes or elementary price indexes only compare prices between two periods.  They do not make any use of quantities or expenditure weights.  These indexes are called &quot;elementary&quot; because they are often used at the lower levels of aggregation for more comprehensive price indexes.&lt;ref&gt;PPI manual, 598.&lt;/ref&gt;  At these lower levels, weights are not necessary since only one type of good is being aggregated.
+
+===Carli===
+Developed in 1764 by [[Giovanni Rinaldo|Carli]], an Italian economist, this formula is the [[arithmetic average]] of the price relative between a period ''t'' and a base period ''0''.
+:&lt;math&gt;P_C = \frac {1}{n}\cdot\sum\left(\frac {p_{t}}{p_0}\right)&lt;/math&gt;
+
+On 17th August 2012 the BBC Radio 4 programme &quot;More or Less&quot; noted that the Carli index, used in part in the British Retail Price Index measure, has a built-in bias towards recording inflation even when, over successive periods there is no increase in prices overall.
+
+===Dutot===
+In 1738 French economist Dutot proposed using an index calculated by dividing the average price in period ''t'' by the average price in period ''0''.
+:&lt;math&gt;P_D = \frac {\frac{1}{n}\cdot\sum (p_{t})}{\frac{1}{n}\cdot\sum (p_{0})}
+= \frac {\sum (p_{t})}{\sum (p_{0})} &lt;/math&gt;
+
+===Jevons===
+In 1863, English economist [[William Stanley Jevons|Jevons]] proposed taking the [[geometric average]] of the price relative of period ''t'' and base period ''0''.&lt;ref&gt;PPI manual, 602.&lt;/ref&gt; When used as an elementary aggregate, the Jevons index is considered a constant elasticity of substitution index since it allows for product substitution between time periods.&lt;ref&gt;PPI manual, 596.&lt;/ref&gt;
+:&lt;math&gt;P_J = \prod\left(\frac{p_{t}}{p_{0}}\right)^{1/n}&lt;/math&gt;
+
+===Harmonic mean of price relatives===
+The harmonic average counterpart to the Carli index.&lt;ref name=&quot;PPI manual, 600&quot;&gt;PPI manual, 600.&lt;/ref&gt;  The index was proposed by Jevons in 1865 and by Coggeshall in 1887.&lt;ref&gt;Export and Import manual, Chapter 20 p. 8&lt;/ref&gt;
+:&lt;math&gt;P_{HR} = \frac {1}{\frac{1}{n}\cdot\sum\left(\frac {p_0}{p_t}\right)}&lt;/math&gt;
+
+===Carruthers, Sellwood, Ward, Dalén index===
+Is the geometric mean of the Carli and the harmonic price indexes.&lt;ref&gt;PPI manual, 597.&lt;/ref&gt;  In 1922 Fisher wrote that this and the Jevons were the two best unweighted indexes based on Fisher's test approach to index number theory.&lt;ref&gt;Export and Import manual, Chapter 20, p. 8&lt;/ref&gt;
+:&lt;math&gt;P_{CSWD} = \sqrt {P_C \cdot P_{HR}}&lt;/math&gt;
+
+===Ratio of harmonic means===
+The ratio of harmonic means or &quot;Harmonic means&quot; price index is the harmonic average counterpart to the Dutot index.&lt;ref name=&quot;PPI manual, 600&quot;/&gt;
+:&lt;math&gt;P_{RH} = \frac {\sum\left(\frac {n}{p_0}\right)}{\sum\left(\frac {n}{p_t}\right)}&lt;/math&gt;
+
+==Precision Formulas==
+
+=== Marshall-Edgeworth ===
+
+The Marshall-Edgeworth index, credited to [[Alfred Marshall|Marshall]] (1887) and [[Francis Ysidro Edgeworth|Edgeworth]](1925),&lt;ref&gt;PPI manual, Chapter 15, p. 378.&lt;/ref&gt;  is a weighted relative of current period to base period sets of prices. This index uses the arithmetic average of the current and based period quantities for weighting. It is considered a pseudo-superlative formula and is symmetric.&lt;ref&gt;PPI manual, 620.&lt;/ref&gt; The use of the Marshall-Edgeworth index can be problematic in cases such as a comparison of the price level of a large country to a small one.  In such instances, the set of quantities of the large country will overwhelm those of the small one.&lt;ref&gt;PPI manual, Chapter 15, p. 378&lt;/ref&gt;
+:&lt;math&gt;P_{ME}=\frac{\sum [p_{c,t_n}\cdot \frac{1}{2}\cdot(q_{c,t_0}+q_{c,t_n})]}{\sum [p_{c,t_0}\cdot \frac{1}{2}\cdot(q_{c,t_0}+q_{c,t_n})]}=\frac{\sum [p_{c,t_n}\cdot (q_{c,t_0}+q_{c,t_n})]}{\sum [p_{c,t_0}\cdot (q_{c,t_0}+q_{c,t_n})]}&lt;/math&gt;
+
+=== Superlative indices ===
+Superlative indices treat prices and quantities equally across periods. They are symmetrical and provide close approximations of [[cost of living index|cost of living indices]] and other theoretical indices used to provide guidelines for constructing price indices.  All superlative indices produce similar results and are generally the favored formulas for calculating price indices.&lt;ref&gt;ILO CPI manual, Chapter 1, p. 2.&lt;/ref&gt;  A superlative index is defined technically as &quot;an index that is exact for a flexible functional form that can provide a [[order of approximation|second-order approximation]] to other
+twice-differentiable functions around the same point.&quot;&lt;ref&gt;Export and Import manual, Chapter 18, p. 23.&lt;/ref&gt;
+
+==== Fisher ====
+:&lt;math&gt;P_F = \sqrt{P_P\cdot P_L}&lt;/math&gt;
+
+This is also called Fisher's “ideal” price index.
+
+==== Törnqvist ====
+{{further|Tornqvist index}}
+The Törnqvist or Törnqvist-Theil index is the geometric average of the n price relatives of the current to base period prices (for n goods) weighted by the arithmetic average of the value shares for the two periods.&lt;ref&gt;PPI manual, p. 610&lt;/ref&gt;&lt;ref&gt;[http://www2.stats.govt.nz/domino/external/omni/omni.nsf/wwwglsry/tornqvist+index+and+other+log-change+index+numbers “Tornqvist Index and other Log-change Index Numbers”], Statistics New Zealand Glossary of Common Terms.&lt;/ref&gt;
+
+:&lt;math&gt;P_t = \prod_{i=1}^{n}\left(\frac{p_{it}}{p_{i0}}\right)^{\frac{1}{2} \left[\frac{p_{i0}q_{i0}}{\sum_{i=1}^{m}\left(p_{i0}q_{i0}\right)}+ \frac{p_{it}q_{it}}{\sum_{i=1}^{m}\left(p_{it}q_{it}\right)}\right]}&lt;/math&gt;
+
+==== Walsh ====
+
+The Walsh price index is the weighted sum of the current period prices divided by the weighted sum of the base period prices with the geometric average of both period quantities serving as the weighting mechanism:
+
+:&lt;math&gt;P_W = \frac {\sum\left(p_{t} \cdot \sqrt{q_{0}\cdot q_{t}}\right)}{\sum\left(p_{0} \cdot \sqrt{q_{0}\cdot q_{t}}\right)}&lt;/math&gt;
+
+==Notes==
+{{reflist}}
+
+==References==
+* [https://www.imf.org/external/np/sta/xipim/pdf/xipim.pdf ''Export and Import Price Index Manual'']
+* [http://www.imf.org/external/np/sta/tegppi/index.htm ''PPI Manual'']
+
+[[Category:Price indices]]
+[[Category:Economics lists|Price indices]]
+[[Category:Mathematics-related lists|Price indices]]
+
+[[tr:Fiyat endeks formülleri listesi]]</text>
+      <sha1>jcjr9pmwha6l9e1rvuhm8p01pf3xte7</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>List of formulae involving π</title>
+    <ns>0</ns>
+    <id>4659082</id>
+    <revision>
+      <id>521017915</id>
+      <parentid>518573451</parentid>
+      <timestamp>2012-11-02T07:30:21Z</timestamp>
+      <contributor>
+        <username>ZéroBot</username>
+        <id>11969601</id>
+      </contributor>
+      <minor/>
+      <comment>r2.7.1) (Robot: Adding [[zh:含π的公式列表]]</comment>
+      <text xml:space="preserve" bytes="14380">{{DISPLAYTITLE: List of formulae involving {{pi}} }}
+{{Pi box}}
+The following is a list of significant formulae involving the [[mathematical constant]] [[pi|{{pi}}]]. The list contains only formulae whose significance is established either in the article on the formula itself, the article on pi, or the one on numerical [[approximations of π|approximations of {{pi}}]].
+
+==Classical geometry==
+:&lt;math&gt;C = 2 \pi r = \pi d\!&lt;/math&gt;
+
+where {{math|''C''}} is the circumference of a [[circle]], {{math|''r''}} is the radius and {{math|''d''}} is the diameter.
+
+:&lt;math&gt;A = \pi r^2\!&lt;/math&gt;
+
+where {{math|A}} is the area of a circle and {{math|''r''}} is the radius.
+
+:&lt;math&gt;V = {4 \over 3}\pi r^3\!&lt;/math&gt;
+
+where {{math|''V''}} is the volume of a [[sphere]] and {{math|''r''}} is the radius.
+
+:&lt;math&gt;A = 4\pi r^2\!&lt;/math&gt;
+
+where {{math|''A''}} is the surface area of a sphere and {{math|''r''}} is the radius.
+
+==Analysis==
+===Integrals===
+:&lt;math&gt;\int\limits_{-\infty}^{\infty} \text{sech}(x)dx = \pi \!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\int\limits_{-1}^1 \sqrt{1-x^2}\,dx = \frac{\pi}{2}\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\int\limits_{-1}^1\frac{dx}{\sqrt{1-x^2}} = \pi\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\int\limits_{-\infty}^\infty\frac{dx}{1+x^2} = \pi\!&lt;/math&gt; (integral form of [[arctan]] over its entire domain, giving the period of [[Trigonometric_functions#tangent|tan]]).
+
+&lt;br /&gt;
+
+:&lt;math&gt;\int\limits_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}\!&lt;/math&gt; (see also [[normal distribution]]).
+
+&lt;br /&gt;
+
+:&lt;math&gt;\oint\frac{dz}{z}=2\pi i\!&lt;/math&gt; (when the path of integration winds once counterclockwise around 0. See also [[Cauchy's integral formula]])
+
+&lt;br /&gt;
+
+:&lt;math&gt;\int\limits_{-\infty}^{\infty} \frac{\sin(x)}{x}\,dx=\pi \!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\int\limits_0^1 {x^4(1-x)^4 \over 1+x^2}\,dx = {22 \over 7} - \pi\!&lt;/math&gt; (see also [[Proof that 22/7 exceeds π]]).
+
+&lt;br /&gt;
+
+===Efficient infinite series===
+:&lt;math&gt;\sum_{k=0}^\infty\frac{k!}{(2k+1)!!}=\sum_{k=0}^\infty\frac{2^k k!^2}{(2k+1)!}=\frac{\pi}{2}\!&lt;/math&gt; (see also [[double factorial]])
+
+&lt;br /&gt;
+
+:&lt;math&gt;12 \sum^\infty_{k=0} \frac{(-1)^k (6k)! (13591409 + 545140134k)}{(3k)!(k!)^3 640320^{3k + 3/2}}=\frac{1}{\pi}\!&lt;/math&gt; (see [[Chudnovsky algorithm]])
+
+&lt;br /&gt;
+
+:&lt;math&gt;\frac{2\sqrt{2}}{9801} \sum^\infty_{k=0} \frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}}=\frac{1}{\pi}\!&lt;/math&gt; (see [[Srinivasa Ramanujan#Mathematical achievements|Srinivasa Ramanujan]])
+
+&lt;br /&gt;
+
+:&lt;math&gt;\frac{\sqrt{3}}{6^5} \sum_{k = 0}^{\infty} \frac{((4k)!)^2(6k)!}{9^{k+1}(12k)!(2k)!} \left( \frac{127169}{12k + 1} - \frac{1070}{12k + 5} - \frac{131}{12k + 7} + \frac{2}{12k + 11}\right)=\pi\!&lt;/math&gt;&lt;ref&gt;Cetin Hakimoglu-Brown [http://iamned.com/math/infiniteseries.pdf Derivation of Rapidly Converging Infinite Series]&lt;/ref&gt;
+
+&lt;br /&gt;
+
+The following are good for calculating arbitrary binary digits of {{pi}}:
+:&lt;math&gt;\sum_{k = 0}^{\infty} \frac{1}{16^k} \left( \frac{4}{8k + 1} - \frac{2}{8k + 4} - \frac{1}{8k + 5} - \frac{1}{8k + 6}\right)=\pi\!&lt;/math&gt; (see [[Bailey-Borwein-Plouffe formula]])
+
+&lt;br /&gt;
+
+:&lt;math&gt;\frac{1}{2^6} \sum_{n=0}^{\infty} \frac{{(-1)}^n}{2^{10n}} \left( - \frac{2^5}{4n+1} - \frac{1}{4n+3} + \frac{2^8}{10n+1} - \frac{2^6}{10n+3} - \frac{2^2}{10n+5} - \frac{2^2}{10n+7} + \frac{1}{10n+9} \right)=\pi\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+===Other infinite series===
+:&lt;math&gt;\zeta(2) = \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \cdots = \frac{\pi^2}{6}\!&lt;/math&gt; &amp;nbsp; (see also [[Basel problem]] and [[Riemann zeta function]])
+
+&lt;br /&gt;
+
+:&lt;math&gt;\zeta(4)= \frac{1}{1^4} + \frac{1}{2^4} + \frac{1}{3^4} + \frac{1}{4^4} + \cdots = \frac{\pi^4}{90}\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\zeta(2n)= \frac{1}{1^{2n}} + \frac{1}{2^{2n}} + \frac{1}{3^{2n}} + \frac{1}{4^{2n}} + \cdots = (-1)^{n+1}\frac{B_{2n}(2\pi)^{2n}}{2(2n)!}\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\sum_{n=0}^{\infty} {\left( \frac{(-1)^{n}}{2n+1} \right) }^1 = \frac{1}{1} - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \cdots = \arctan{1} = \frac{\pi}{4}\!&lt;/math&gt; &amp;nbsp; (see [[Leibniz formula for pi]])
+
+&lt;br /&gt;
+
+:&lt;math&gt;\sum_{n=0}^{\infty} {\left( \frac{(-1)^{n}}{2n+1} \right) }^2 = \frac{1}{1^2} + \frac{1}{3^2} + \frac{1}{5^2} + \frac{1}{7^2} + \cdots = \frac{\pi^2}{8}\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\sum_{n=0}^{\infty} {\left( \frac{(-1)^{n}}{2n+1} \right) }^3 = \frac{1}{1^3} - \frac{1}{3^3} + \frac{1}{5^3} - \frac{1}{7^3} + \cdots = \frac{\pi^3}{32}\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\sum_{n=0}^{\infty} {\left( \frac{(-1)^{n}}{2n+1} \right) }^4 = \frac{1}{1^4} + \frac{1}{3^4} + \frac{1}{5^4} + \frac{1}{7^4} + \cdots = \frac{\pi^4}{96}\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\sum_{n=0}^{\infty} {\left( \frac{(-1)^{n}}{2n+1} \right) }^5 = \frac{1}{1^5} - \frac{1}{3^5} + \frac{1}{5^5} - \frac{1}{7^5} + \cdots = \frac{5\pi^5}{1536}\!&lt;/math&gt;
+
+&lt;br /&gt;
+
+:&lt;math&gt;\sum_{n=0}^{\infty} {\left( \frac{(-1)^{n}}{2n+1} \right) }^6 = \frac{1}{1^6} + \frac{1}{3^6} + \frac{1}{5^6} + \frac{1}{7^6} + \cdots = \frac{\pi^6}{960}\!&lt;/math&gt;
+&lt;br /&gt;
+
+:&lt;math&gt; \frac{\pi}{4} = \frac{3}{4} \times \frac{5}{4} \times \frac{7}{8} \times \frac{11}{12} \times \frac{13}{12} \times \frac{17}{16} \times \frac{19}{20} \times \frac{23}{24} \times \frac{29}{28} \times \frac{31}{32} \times \cdots \! &lt;/math&gt; ([[Leonhard Euler|Euler]])
+:where the numerators are the odd primes; each denominator is the multiple of four nearest to the numerator.
+
+&lt;br /&gt;
+
+:&lt;math&gt; \pi = {{1}} + \frac{{1}}{{2}} + \frac{{1}}{{3}} + \frac{{1}}{{4}} - \frac{{1}}{{5}} + \frac{{1}}{{6}} + \frac{{1}}{{7}} + \frac{{1}}{{8}} + \frac{{1}}{{9}} - \frac{{1}}{{10}} +  \frac{{1}}{{11}} + \frac{{1}}{{12}} - \frac{{1}}{{13}} + \cdots \!&lt;/math&gt; &amp;nbsp; (Euler, 1748)
+
+: The signs are determined as follows: If the denominator is a prime of the form 4''m'' - 1, the sign is positive; if the denominator is 2 or a prime of the form 4''m'' + 1, the sign is negative; for composite numbers, the sign is equal the product of the signs of its factors.&lt;ref&gt;[[Carl B. Boyer]], ''A History of Mathematics'', Chapter 21.&lt;/ref&gt;
+
+&lt;br /&gt;
+
+===Machin-like formulae===
+See also [[Machin-like formula]].
+: &lt;math&gt;\frac{\pi}{4} = 4 \arctan\frac{1}{5} - \arctan\frac{1}{239} \!&lt;/math&gt; (the original [[John Machin|Machin's]] formula)
+&lt;br /&gt;
+:&lt;math&gt;\frac{\pi}{4} = \arctan\frac{1}{2} + \arctan\frac{1}{3}\!&lt;/math&gt;
+&lt;br /&gt;
+:&lt;math&gt;\frac{\pi}{4} = 2 \arctan\frac{1}{2} - \arctan\frac{1}{7}\!&lt;/math&gt;
+&lt;br /&gt;
+:&lt;math&gt;\frac{\pi}{4} = 2 \arctan\frac{1}{3} + \arctan\frac{1}{7}\!&lt;/math&gt;
+&lt;br /&gt;
+:&lt;math&gt;\frac{\pi}{4} = 5 \arctan\frac{1}{7} + 2 \arctan\frac{3}{79}\!&lt;/math&gt;
+&lt;br /&gt;
+:&lt;math&gt;\frac{\pi}{4} = 12 \arctan\frac{1}{49} + 32 \arctan\frac{1}{57} - 5 \arctan\frac{1}{239} + 12 \arctan\frac{1}{110443}\!&lt;/math&gt;
+&lt;br /&gt;
+:&lt;math&gt;\frac{\pi}{4} = 44 \arctan\frac{1}{57} + 7 \arctan\frac{1}{239} - 12 \arctan\frac{1}{682} + 24 \arctan\frac{1}{12943}\!&lt;/math&gt;
+&lt;br /&gt;
+
+===Infinite series===
+Some infinite series involving pi are:&lt;ref&gt;{{cite web |title=The world of Pi |url=http://www.pi314.net/eng/ramanujan.php |author= Simon Plouffe / David Bailey |publisher=Pi314.net |date= |accessdate=2011-01-29}}&lt;br/&gt;{{cite web|url=http://numbers.computation.free.fr/Constants/Pi/piSeries.html |title=Collection of series for {{pi}} |publisher=Numbers.computation.free.fr |date= |accessdate=2011-01-29}}&lt;/ref&gt;
+
+{| class=&quot;wikitable&quot;
+|-
+| &lt;math&gt;\pi=\frac{1}{Z}\!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{((2n)!)^3(42n+5)} {(n!)^6{16}^{3n+1}}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{4}{Z}\!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(-1)^n(4n)!(21460n+1123)} {(n!)^4{441}^{2n+1}{2}^{10n+1}}&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{4}{Z}\!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(6n+1)\left ( \frac{1}{2} \right )^3_n} {{4^n}(n!)^3}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{32}{Z}\!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \left (\frac{\sqrt{5}-1}{2}  \right )^{8n} \frac{(42n\sqrt{5} +30n + 5\sqrt{5}-1) \left ( \frac{1}{2} \right )^3_n} {{64^n}(n!)^3}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{27}{4Z}\!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \left (\frac{2}{27}  \right )^n \frac{(15n+2)\left ( \frac{1}{2} \right )_n \left ( \frac{1}{3} \right )_n \left ( \frac{2}{3} \right )_n} {(n!)^3}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{15\sqrt{3}}{2Z}\!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \left ( \frac{4}{125} \right )^n \frac{(33n+4)\left ( \frac{1}{2} \right )_n \left ( \frac{1}{3} \right )_n \left ( \frac{2}{3} \right )_n} {(n!)^3}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{85\sqrt{85}}{18\sqrt{3}Z}\!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \left ( \frac{4}{85} \right )^n \frac{(133n+8)\left ( \frac{1}{2} \right )_n \left ( \frac{1}{6} \right )_n \left ( \frac{5}{6} \right )_n} {(n!)^3}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{5\sqrt{5}}{2\sqrt{3}Z} \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \left ( \frac{4}{125} \right )^n \frac{(11n+1)\left ( \frac{1}{2} \right )_n \left ( \frac{1}{6} \right )_n \left ( \frac{5}{6} \right )_n} {(n!)^3}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{2\sqrt{3}}{Z} \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(8n+1)\left ( \frac{1}{2} \right )_n \left ( \frac{1}{4} \right )_n \left ( \frac{3}{4} \right )_n} {(n!)^3{9}^{n}}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{\sqrt{3}}{9Z} \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(40n+3)\left ( \frac{1}{2} \right )_n \left ( \frac{1}{4} \right )_n \left ( \frac{3}{4} \right )_n} {(n!)^3{49}^{2n+1}}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{2\sqrt{11}}{11Z} \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(280n+19)\left ( \frac{1}{2} \right )_n \left ( \frac{1}{4} \right )_n \left ( \frac{3}{4} \right )_n} {(n!)^3{99}^{2n+1}}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{\sqrt{2}}{4Z} \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(10n+1) \left ( \frac{1}{2} \right )_n \left ( \frac{1}{4} \right )_n \left ( \frac{3}{4} \right )_n} {(n!)^3{9}^{2n+1}}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{4\sqrt{5}}{5Z}  \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(644n+41) \left ( \frac{1}{2} \right )_n \left ( \frac{1}{4} \right )_n \left ( \frac{3}{4} \right )_n} {(n!)^35^n{72}^{2n+1}}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{4\sqrt{3}}{3Z} \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(-1)^n(28n+3) \left ( \frac{1}{2} \right )_n \left ( \frac{1}{4} \right )_n \left ( \frac{3}{4} \right )_n} { (n!)^3{3^n}{4}^{n+1}}\!&lt;/math&gt;
+|-
+| &lt;math&gt; \pi=\frac{4}{Z}\!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(-1)^n(20n+3) \left ( \frac{1}{2} \right )_n \left ( \frac{1}{4} \right )_n \left ( \frac{3}{4} \right )_n} { (n!)^3{2}^{2n+1}}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{72}{Z} \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(-1)^n(4n)!(260n+23)}{(n!)^44^{4n}18^{2n}}\!&lt;/math&gt;
+|-
+| &lt;math&gt;\pi=\frac{3528}{Z} \!&lt;/math&gt;|| &lt;math&gt;Z=\sum_{n=0}^{\infty } \frac{(-1)^n(4n)!(21460n+1123)}{(n!)^44^{4n}882^{2n}}\!&lt;/math&gt;
+|}
+
+where
+
+: &lt;math&gt;(x)_n \!&lt;/math&gt;
+
+is the [[Pochhammer symbol]] for the falling factorial.
+
+===Infinite products===
+:&lt;math&gt; \prod_{n=1}^{\infty} \frac{4n^2}{4n^2-1} = \frac{2}{1} \cdot \frac{2}{3} \cdot \frac{4}{3} \cdot \frac{4}{5} \cdot \frac{6}{5} \cdot \frac{6}{7} \cdot \frac{8}{7} \cdot \frac{8}{9} \cdots = \frac{4}{3} \cdot \frac{16}{15} \cdot \frac{36}{35} \cdot \frac{64}{63} \cdots = \frac{\pi}{2} \!&lt;/math&gt; (see also [[Wallis product]])
+
+&lt;br /&gt;
+[[Franciscus Vieta|Vieta]]'s formula:
+
+:&lt;math&gt;\frac{\sqrt2}2 \cdot \frac{\sqrt{2+\sqrt2}}2 \cdot \frac{\sqrt{2+\sqrt{2+\sqrt2}}}2 \cdot \cdots = \frac2\pi\!&lt;/math&gt;
+
+=== Three continued fractions ===
+:&lt;math&gt;
+\pi= {3 + \cfrac{1^2}{6 + \cfrac{3^2}{6 + \cfrac{5^2}{6 + \cfrac{7^2}{6 + \ddots\,}}}}}
+&lt;/math&gt;
+&lt;br /&gt;
+:&lt;math&gt;
+\pi = \cfrac{4}{1 + \cfrac{1^2}{3 + \cfrac{2^2}{5 + \cfrac{3^2}{7 + \cfrac{4^2}{9 + \ddots}}}}}
+&lt;/math&gt;
+&lt;br /&gt;
+:&lt;math&gt;
+\pi = \cfrac{4}{1 + \cfrac{1^2}{2 + \cfrac{3^2}{2 + \cfrac{5^2}{2 + \cfrac{7^2}{2 + \ddots}}}}}\,
+&lt;/math&gt;
+
+For more on this third identity, see [[Euler's continued fraction formula]].
+
+(See also [[continued fraction]] and [[generalized continued fraction]].)
+
+===Miscellaneous===
+:&lt;math&gt;n! \sim \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n\!&lt;/math&gt; ([[Stirling's approximation]])
+&lt;br /&gt;
+:&lt;math&gt;e^{i \pi} = -1\!&lt;/math&gt; ([[Euler's identity]])
+&lt;br /&gt;
+:&lt;math&gt;\sum_{k=1}^{n} \varphi (k) \sim \frac{3n^2}{\pi^2}\!&lt;/math&gt; (see [[Euler's totient function]])
+&lt;br /&gt;
+:&lt;math&gt;\sum_{k=1}^{n} \frac {\varphi (k)} {k} \sim \frac{6n}{\pi^2}\!&lt;/math&gt; (see [[Euler's totient function]])
+&lt;br /&gt;
+:&lt;math&gt;\Gamma\left({1 \over 2}\right)=\sqrt{\pi}\!&lt;/math&gt; (see also [[gamma function]])
+&lt;br /&gt;
+:&lt;math&gt;\pi = \frac{\Gamma\left({1/4}\right)^{4/3} \mathrm{agm}(1, \sqrt{2})^{2/3}}{2}\!&lt;/math&gt; (where agm is the [[arithmetic-geometric mean]])
+&lt;br /&gt;
+:&lt;math&gt;\lim_{n\rightarrow \infty}\frac{1}{n^2} \sum_{k=1}^n (n\;\bmod\;k) = 1-\frac{\pi^2}{12}\!&lt;/math&gt; (where mod is the modulo function which gives the rest of a division this formula is getting better for higher n)
+&lt;br /&gt;
+:&lt;math&gt;\lim_{n\rightarrow \infty} 10^{n+2}\cdot \sin(\frac{1}{\underbrace{55\cdots5}_{\mathrm{n\; digits}}}) = \pi\!&lt;/math&gt; (where the sine function is in [[Degree (angle)|degree]]s, not [[radian]]s)
+&lt;br /&gt;
+:&lt;math&gt;\lim_{n\rightarrow \infty} n\cdot \sin(\frac{180}{n}) = \pi\!&lt;/math&gt; (where the sine function is in [[Degree (angle)|degree]]s, not [[radian]]s)
+&lt;br /&gt;
+
+==Physics==
+*The [[cosmological constant]]:
+::&lt;math&gt;\Lambda = {{8\pi G} \over {3c^2}} \rho\!&lt;/math&gt;
+&lt;br /&gt;
+*[[Uncertainty principle|Heisenberg's uncertainty principle]]:
+::&lt;math&gt; \Delta x\, \Delta p \ge \frac{h}{4\pi} \!&lt;/math&gt;
+&lt;br /&gt;
+*[[Einstein's field equation]] of [[general relativity]]:
+::&lt;math&gt; R_{ik} - {g_{ik} R \over 2} + \Lambda g_{ik} = {8 \pi G \over c^4} T_{ik} \!&lt;/math&gt;
+&lt;br /&gt;
+*[[Coulomb's law]] for the [[electric force]]:
+::&lt;math&gt; F = \frac{\left|q_1q_2\right|}{4 \pi \varepsilon_0 r^2}\!&lt;/math&gt;
+&lt;br /&gt;
+*[[Permeability (electromagnetism)|Magnetic permeability of free space]]:
+::&lt;math&gt; \mu_0 = 4 \pi \cdot 10^{-7}\,\mathrm{N/A^2}\!&lt;/math&gt;
+&lt;br /&gt;
+*Period of a simple [[pendulum]] with small amplitude
+:::&lt;math&gt;T \approx 2\pi \sqrt\frac{L}{g}\!&lt;/math&gt;
+
+==References==
+{{reflist|2}}
+
+==Further reading==
+* Peter Borwein, ''[http://www.cecm.sfu.ca/personal/pborwein/PAPERS/P159.pdf The Amazing Number Pi]''
+* Kazuya Kato, Nobushige Kurokawa, Saito Takeshi: ''Number Theory 1: Fermat's Dream.'' American Mathematical Society, Providence 1993, ISBN 0-8218-0863-X.
+
+==See also==
+* [[Pi]]
+* [[Approximations of π]]
+* [[List of topics related to π]]
+* [http://www.alltooflat.com/about/personal/ton/MathematicalPi.mp3]
+
+
+{{DEFAULTSORT:Formulae Involving Pi, List Of}}
+[[Category:Pi]]
+[[Category:Mathematics-related lists|Pi]]
+[[Category:Pi algorithms]]
+
+[[ar:ملحق:قائمة الصيغ المحتوية ط]]
+[[bs:Spisak formula koje sadrže π]]
+[[zh:含π的公式列表]]</text>
+      <sha1>58vnscaxzajo3mqh0gimm9cpillps26</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+</mediawiki>
