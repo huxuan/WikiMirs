@@ -7,13 +7,13 @@ Email: i(at)huxuan.org
 Description: online process to handle query
 """
 
+import sys
 try:
     from config import COLLECTION_NAME_RAW, COLLECTION_NAME_GEN
 except ImportError:
     print "[Error] config.py is needed! You can refer to config-sample.py!"
     sys.exit(1)
 
-import sys
 import math
 import urllib
 import datetime

@@ -7,6 +7,7 @@ Email: i(at)huxuan.org
 Description: Offline process to build index
 """
 
+import sys
 try:
     import config
 except ImportError:
@@ -14,7 +15,6 @@ except ImportError:
     sys.exit(1)
 
 import re
-import sys
 import datetime
 from xml.sax import parse, SAXException
 from xml.sax.handler import ContentHandler
