@@ -37,6 +37,7 @@ def latexmlmath(texmath, options=[]):
     """docstring for latexmlmath"""
     commands = ['latexmlmath']
     commands.extend(options)
+    commands.append('--')
     commands.append(texmath)
     return subprocess.check_output(commands)
 
