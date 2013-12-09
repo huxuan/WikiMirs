@@ -1,0 +1,72 @@
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
+a:hover {text-decoration: underline; color: red;}
+
+ul {
+    margin: 0 0 10px 0;
+}
+
+table {
+    width: 80%;
+}
+
+td.td_formula {
+    width: 35%;
+    background: #D8D8D8;
+}
+
+td.td_textarea{
+    text-align: center;
+    width: 65%;
+}
+
+.button {
+    background: #6E6E6E;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 50px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.hiddendiv {
+    display: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.txtstuff {
+    resize: none;
+    overflow: hidden;
+}
+
+.msg {
+    font-weight: bold;
+    color: red;
+    text-align: center;
+}
+
+.time {
+    color: gray;
+    font-size: small;
+    text-align: right;
+}
+
+.even {
+    background: #F2F2F2;
+}
+
+.odd {
+    background: #FFFFFF;
+}
