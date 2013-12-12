@@ -50,4 +50,6 @@ coverage.xml
 docs/_build/
 
 # Custom
+*.swp
 config.py
+data/Wikipedia-production.xml
