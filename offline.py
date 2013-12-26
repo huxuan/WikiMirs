@@ -86,7 +86,7 @@ class WikiMathHandler(ContentHandler):
                     # print latex
                     latex = normalize_latex(latex)
                     # print latex
-                    pmml = latex2pmml(latex, OPTIONS)
+                    pmml = latex2pmml(latex, list(OPTIONS))
                     # print pmml
                     # raw_input()
                     pmml_id = db.pmml.save({
@@ -116,6 +116,7 @@ class WikiMathHandler(ContentHandler):
                     print >>f, '=' * 80
                     print >>f, 'Title:', self.title.encode('utf8')
                     print >>f, 'LaTeX:', latex.encode('utf8')
+                    print >>f, 'Error:', exc
                     print >>f, '=' * 80
                     print >>f
                     f.close()

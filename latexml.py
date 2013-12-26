@@ -35,12 +35,18 @@ def xmlclean(xml):
 
 def latexmlmath(texmath, options=[]):
     """docstring for latexmlmath"""
-    commands = ['echo', texmath, '|', 'latexmlmath']
+    texmath = re.sub(r'\\', r'\\\\\\', texmath)
+    # print texmath
+    # raw_input()
+    commands = ['echo', '"' + texmath + '"', '|', 'latexmlmath']
     commands.extend(options)
     commands.append('--')
     commands.append('-')
     commands = ' '.join(commands)
-    return subprocess.check_output(commands, shell=True)
+    # print commands
+    res = subprocess.check_output(commands, shell=True)
+    # print res
+    return res
 
 def latex2presentationmathml(texmath, options=[]):
     """docstring for latex2presentationmathml"""
