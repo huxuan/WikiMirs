@@ -8,12 +8,15 @@ Description: Some common use functions
 """
 
 import re
+import zlib
+import base64
 from xml.dom import Node
 from xml.dom.minidom import parseString
 
 OPTIONS = ['--noparse', '--quiet']
 
-IGNORE_LATEX_LIST = [r'{}']
+IGNORE_LATEX_LIST = [r'\\qquad', r'\\quad', r'\\\\\[\w+\]', r'\\\\', r'\\!',
+            r'\\,', r'\\;', r'\\ ', r'{}', ]
 IGNORE_SPACE_LIST = ['^\s+', '\s+$']
 IGNORE_MULTI_SPACE = '\s+'
 
@@ -35,14 +38,25 @@ def normalize_latex(latex):
         latex = re.sub(ignore_item, '', latex)
     return latex
 
+def term_compress(term):
+    """docstring for term_compress"""
+    return base64.b64encode(zlib.compress(term.encode('utf8')))
+
+def term_decompress(term):
+    """docstring for term_decompress"""
+    return zlib.decompress(base64.b64decode(term)).decode('utf8')
+
 def xml2terms(xml):
     """docstring for xml2terms"""
     root = parseString(xml).documentElement
     stack = [root, ]
 
     while stack:
-        res = stack[-1].toxml()
-        yield res, re.sub('>[^<]+?<', '><', res), len(stack)
+        term_raw = stack[-1].toxml()
+        term_gen = re.sub('>[^<]+?<', '><', term_raw);
+        term_raw = term_compress(term_raw)
+        term_gen = term_compress(term_gen)
+        yield term_raw, term_gen, len(stack)
         if stack[-1].firstChild and \
             stack[-1].firstChild.firstChild and \
             stack[-1].firstChild.firstChild.nodeType != Node.TEXT_NODE and \
