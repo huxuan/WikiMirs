@@ -52,14 +52,16 @@ def xml2terms(xml):
     stack = [root, ]
 
     while stack:
-        term_raw = stack[-1].toxml()
-        term_gen = re.sub('>[^<]+?<', '><', term_raw);
-        term_raw = term_compress(term_raw)
-        term_gen = term_compress(term_gen)
-        yield term_raw, term_gen, len(stack)
         if stack[-1].firstChild and \
-            stack[-1].firstChild.firstChild and \
-            stack[-1].firstChild.firstChild.nodeType != Node.TEXT_NODE and \
+            stack[-1].firstChild.nodeType != Node.TEXT_NODE:
+            term_raw = stack[-1].toxml()
+            term_gen = re.sub('>[^<]+?<', '><', term_raw);
+            # print term_raw, term_gen, len(stack)
+            term_raw = term_compress(term_raw)
+            term_gen = term_compress(term_gen)
+            # print term_raw, term_gen, len(stack)
+            yield term_raw, term_gen, len(stack)
+        if stack[-1].firstChild and \
             stack[-1].firstChild.nodeType != Node.TEXT_NODE:
             stack.append(stack[-1].firstChild)
         elif stack[-1].nextSibling:
