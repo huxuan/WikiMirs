@@ -8,7 +8,7 @@ Description: A wrapper of LaTeXML
 """
 
 import re
-import subprocess
+from subprocess import Popen, PIPE, STDOUT
 
 WHITESPACE_PATTERN = re.compile(r'\s+', re.MULTILINE)
 MATH_PATTERN = re.compile(r'<math.*?>(.*?)</math>',
@@ -22,29 +22,31 @@ class LaTeXMLException(Exception):
 
 def xmlclean(xml):
     """docstring for xmlclean"""
-    # Filter tags' attributes
-    xml = re.sub('(<\S+?)\ [^>]*?(\/?>)', r'\1\2', xml)
-    # Filter whitespace characters
-    xml = re.sub('\s+', '', xml)
+    if xml:
+        # Filter tags' attributes
+        xml = re.sub('(<\S+?)\ [^>]*?(\/?>)', r'\1\2', xml)
+        # Filter whitespace characters
+        xml = re.sub('\s+', '', xml)
 
-    res = MATH_PATTERN.search(xml)
-    if res:
-        return res.group(1)
+        res = MATH_PATTERN.search(xml)
+        if res:
+            return res.group(1)
+        else:
+            raise LaTeXMLException("No Valid MathML Extracted")
     else:
-        raise LaTeXMLException("No Valid MathML Extracted")
+        return None
 
 def latexmlmath(texmath, options=[]):
     """docstring for latexmlmath"""
-    texmath = re.sub(r'\\', r'\\\\\\', texmath)
     # print texmath
     # raw_input()
-    commands = ['echo', '"' + texmath + '"', '|', 'latexmlmath']
+    commands = ['latexmlmath']
     commands.extend(options)
     commands.append('--')
     commands.append('-')
-    commands = ' '.join(commands)
     # print commands
-    res = subprocess.check_output(commands, shell=True)
+    popen = Popen(commands, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    res = popen.communicate(texmath)[0]
     # print res
     return res
 
