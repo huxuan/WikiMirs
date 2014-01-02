@@ -14,25 +14,16 @@ WHITESPACE_PATTERN = re.compile(r'\s+', re.MULTILINE)
 MATH_PATTERN = re.compile(r'<math.*?>(.*?)</math>',
     re.MULTILINE | re.IGNORECASE | re.DOTALL)
 
-class LaTeXMLException(Exception):
-    def __init__(self, value):
-        self.parameter = value
-    def __str__(self):
-        return repr(self.parameter)
-
 def xmlclean(xml):
     """docstring for xmlclean"""
-    if xml:
-        # Filter tags' attributes
-        xml = re.sub('(<\S+?)\ [^>]*?(\/?>)', r'\1\2', xml)
-        # Filter whitespace characters
-        xml = re.sub('\s+', '', xml)
+    # Filter tags' attributes
+    xml = re.sub('(<[^>\s]+?)\ [^>]*?(\/?>)', r'\1\2', xml)
+    # Filter whitespace characters
+    xml = re.sub('\s+', '', xml)
 
-        res = MATH_PATTERN.search(xml)
-        if res:
-            return res.group(1)
-        else:
-            raise LaTeXMLException("No Valid MathML Extracted")
+    res = MATH_PATTERN.search(xml)
+    if res:
+        return res.group(1)
     else:
         return None
 
