@@ -145,7 +145,7 @@ def main():
     # MongoDB init
     drop_database()
     db[cnraw].create_index('term')
-    db[cngen].create_index('pmml')
+    db[cngen].create_index('term')
 
     time_begin = datetime.datetime.utcnow()
 
