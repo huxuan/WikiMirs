@@ -18,8 +18,7 @@ import re
 import datetime
 from xml.sax import parse, SAXException
 from xml.sax.handler import ContentHandler
-from multiprocessing import Pool, TimeoutError
-from collections import deque
+from multiprocessing import Pool
 
 from lib import OPTIONS
 from lib import xml2terms
@@ -51,7 +50,6 @@ class WikiMathHandler(ContentHandler):
         self.page_id = None
         self.pmml_count = 0
         self.pool = Pool(processes=20)
-        self.queue = deque()
 
     def startElement(self, name, attrs):
         """docstring for startElement"""
@@ -91,14 +89,7 @@ class WikiMathHandler(ContentHandler):
             latex_list = MATH_PATTERN.findall(self.text)
             # print len(latex_list)
             for latex in latex_list:
-                self.queue.append(self.pool.apply_async(
-                    work, (latex, self.page_id,self.title)))
-            while len(self.queue) > 200:
-                result = self.queue.popleft()
-                try:
-                    result.get(timeout=1)
-                except TimeoutError:
-                    pass
+                self.pool.apply_async(work, (latex, self.page_id, self.title))
 
     def characters(self, content):
         """docstring for characters"""
