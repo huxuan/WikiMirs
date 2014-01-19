@@ -74,7 +74,7 @@ class WikiMathHandler(ContentHandler):
 
             # Update self.pmml_count when the count has an evident increase
             pmml_count = db.pmml.count()
-            if pmml_count - self.pmml_count > 1000:
+            if pmml_count - self.pmml_count > 100:
                 self.pmml_count = pmml_count
                 print pmml_count
 
@@ -112,12 +112,11 @@ def work(latex, page_id, title):
     # try:
     if latex in LATEX_HACK:
         return
-    print repr(latex)
+    # print repr(latex)
     latex = normalize_latex(latex)
-    print repr(latex)
-    print 'OPTIONS:', OPTIONS
+    # print repr(latex)
     pmml = latex2pmml(latex.encode('utf8'), list(OPTIONS))
-    print repr(pmml)
+    # print repr(pmml)
     # raw_input()
     if pmml:
         pmml_id = db.pmml.save({
