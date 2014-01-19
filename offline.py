@@ -18,6 +18,7 @@ import re
 import datetime
 from xml.sax import parse, SAXException
 from xml.sax.handler import ContentHandler
+from multiprocessing import Pool
 
 from lib import OPTIONS
 from lib import xml2terms
@@ -48,6 +49,7 @@ class WikiMathHandler(ContentHandler):
         self.con_list = []
         self.page_id = None
         self.pmml_count = 0
+        self.pool = Pool(processes=20)
 
     def startElement(self, name, attrs):
         """docstring for startElement"""
@@ -87,50 +89,7 @@ class WikiMathHandler(ContentHandler):
             latex_list = MATH_PATTERN.findall(self.text)
             # print len(latex_list)
             for latex in latex_list:
-                try:
-                    if latex in LATEX_HACK:
-                        continue
-                    print repr(latex)
-                    latex = normalize_latex(latex)
-                    print repr(latex)
-                    print 'OPTIONS:', OPTIONS
-                    pmml = latex2pmml(latex.encode('utf8'), list(OPTIONS))
-                    print repr(pmml)
-                    # raw_input()
-                    if pmml:
-                        pmml_id = db.pmml.save({
-                            'page_id': self.page_id,
-                            'pmml': pmml,
-                        })
-                        term_count = 0
-                        for term_raw, term_gen, level in xml2terms(pmml):
-                            attr = {'level': level}
-                            modification = {
-                                '$inc': {'count': 1},
-                                '$push': {'index.%s' % pmml_id: attr},
-                            }
-
-                            # print "len(term_raw): ", len(term_raw)
-                            # print "len(term_gen): ", len(term_gen)
-                            condition = {'term': term_raw}
-                            db[cnraw].update(condition, modification, True)
-                            condition = {'term': term_gen}
-                            db[cngen].update(condition, modification, True)
-                            term_count += 2
-                        db.pmml.update(
-                            {'_id': pmml_id},
-                            {'$set': {'term_count': term_count}}
-                        )
-                except Exception, exc:
-                    print 'There is an error here!'
-                    f = file('error.log', 'a')
-                    print >>f, '=' * 80
-                    print >>f, 'Title:', self.title.encode('utf8')
-                    print >>f, 'LaTeX:', latex.encode('utf8')
-                    print >>f, 'Error:', str(exc).encode('utf8')
-                    print >>f, '=' * 80
-                    print >>f
-                    f.close()
+                self.pool.apply_async(work, (latex, self.page_id, self.title))
 
     def characters(self, content):
         """docstring for characters"""
@@ -138,6 +97,53 @@ class WikiMathHandler(ContentHandler):
             self.con_list.append(content)
             # print repr(content)
             # raw_input()
+
+def work(latex, page_id, title):
+    """docstring for work"""
+    # try:
+    if latex in LATEX_HACK:
+        return
+    print repr(latex)
+    latex = normalize_latex(latex)
+    print repr(latex)
+    print 'OPTIONS:', OPTIONS
+    pmml = latex2pmml(latex.encode('utf8'), list(OPTIONS))
+    print repr(pmml)
+    # raw_input()
+    if pmml:
+        pmml_id = db.pmml.save({
+            'page_id': page_id,
+            'pmml': pmml,
+        })
+        term_count = 0
+        for term_raw, term_gen, level in xml2terms(pmml):
+            attr = {'level': level}
+            modification = {
+                '$inc': {'count': 1},
+                '$push': {'index.%s' % pmml_id: attr},
+            }
+
+            # print "len(term_raw): ", len(term_raw)
+            # print "len(term_gen): ", len(term_gen)
+            condition = {'term': term_raw}
+            db[cnraw].update(condition, modification, True)
+            condition = {'term': term_gen}
+            db[cngen].update(condition, modification, True)
+            term_count += 2
+        db.pmml.update(
+            {'_id': pmml_id},
+            {'$set': {'term_count': term_count}}
+        )
+    # except Exception, exc:
+    #     print 'There is an error here!'
+    #     f = file('error.log', 'a')
+    #     print >>f, '=' * 80
+    #     print >>f, 'Title:', title.encode('utf8')
+    #     print >>f, 'LaTeX:', latex.encode('utf8')
+    #     print >>f, 'Error:', str(exc).encode('utf8')
+    #     print >>f, '=' * 80
+    #     print >>f
+    #     f.close()
 
 def main():
     """docstring for main"""
