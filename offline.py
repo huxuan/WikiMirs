@@ -120,7 +120,7 @@ def work(latex, page_id, title):
             attr = {'level': level}
             modification = {
                 '$inc': {'count': 1},
-                '$push': {'index.%s' % pmml_id: attr},
+                '$push': {'index.%s+%s' % (page_id, pmml_id): attr},
             }
 
             # print "len(term_raw): ", len(term_raw)
