@@ -33,6 +33,11 @@ from config import COLLECTION_NAME_RAW as cnraw
 DATA = 'data/Wikipedia-%s.xml' % config.VERSION
 MATH_PATTERN = re.compile(r'<math>(.*?)</math>', re.I | re.M | re.S)
 
+LATEX_HACK = [
+    u"\\begin{pmatrix} \\frac{1}{c}\\frac{\\partial \\phi}{\\partial t'} & \\frac{\\partial \\phi}{\\partial x'} & \\frac{\\partial \\phi}{\\partial y'} & \\frac{\\partial \\phi}{\\partial z'}\\end{pmatrix} = \\begin{pmatrix} \\frac{1}{c}\\frac{\\partial \\phi}{\\partial t} & \\frac{\\partial \\phi}{\\partial x} & \\frac{\\partial \\phi}{\\partial y} & \\frac{\\partial \\phi}{\\partial z}\\end{pmatrix}\\begin{pmatrix}\n\\gamma & -\\beta\\gamma & 0 & 0\\\\\n-\\beta\\gamma & \\gamma & 0 & 0\\\\\n0 & 0 & 1 & 0\\\\\n0 & 0 & 0 & 1\n\\end{pmatrix} \\,.",
+    u'\\begin{align}\n{\\mathbf{A=LDL}^\\mathrm{T}} & =\n\\begin{pmatrix}\n \\mathbf I & 0 & 0 \\\\\n \\mathbf L_{21} & \\mathbf I & 0 \\\\\n \\mathbf L_{31} & \\mathbf L_{32} & \\mathbf I\\\\\n\\end{pmatrix}\n\\begin{pmatrix}\n \\mathbf D_1 & 0 & 0 \\\\\n 0 & \\mathbf D_2 & 0 \\\\\n 0 & 0 & \\mathbf D_3\\\\\n\\end{pmatrix}\n\\begin{pmatrix}\n \\mathbf I & \\mathbf L_{21}^\\mathrm T & \\mathbf L_{31}^\\mathrm T \\\\\n 0 & \\mathbf I & \\mathbf L_{32}^\\mathrm T \\\\\n 0 & 0 & \\mathbf I\\\\\n\\end{pmatrix} \\\\\n& = \\begin{pmatrix}\n \\mathbf D_1 &   &(\\mathrm{symmetric})   \\\\\n \\mathbf L_{21} \\mathbf D_1 & \\mathbf L_{21} \\mathbf D_1 \\mathbf L_{21}^\\mathrm T + \\mathbf D_2& \\\\\n \\mathbf L_{31} \\mathbf D_1 & \\mathbf  L_{31} \\mathbf D_{1} \\mathbf L_{21}^\\mathrm T + \\mathbf  L_{32} \\mathbf D_2 & \\mathbf L_{31} \\mathbf D_1 \\mathbf L_{31}^\\mathrm T + \\mathbf L_{32} \\mathbf D_2 \\mathbf L_{32}^\\mathrm T + \\mathbf D_3\n\\end{pmatrix}\n\\end{align}\n',
+]
+
 class WikiMathHandler(ContentHandler):
     """Summary of WikiMathHandler"""
     def __init__(self, *args, **kwargs):
@@ -75,6 +80,7 @@ class WikiMathHandler(ContentHandler):
 
         elif name == 'text':
             self.text = ''.join(self.con_list)
+            self.text = re.sub('<!--.*?-->', '', self.text)
             del(self.con_list[:])
 
             # print len(self.text)
