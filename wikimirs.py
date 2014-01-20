@@ -31,7 +31,8 @@ def index_get():
     if query:
         offset = int(request.query.offset or 0)
         count = int(request.query.count or 10)
-        res = get_result(query, offset, count)
+        lang = str(request.query.lang or 'latex')
+        res = get_result(query, offset, count, lang)
 
         if 'api' in request.query.search:
             return res

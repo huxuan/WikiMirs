@@ -20,6 +20,7 @@ import datetime
 from operator import itemgetter
 
 from lib import OPTIONS
+from lib import xmlclean
 from lib import xml2terms
 from lib import normalize_latex
 from latexml import latex2pmml
@@ -35,12 +36,14 @@ NOR_VALUE = {
     COLLECTION_NAME_GEN: 0.5,
 }
 
-def get_score(latex):
+def get_score(query, lang='latex'):
     """docstring for get_score"""
 
-    latex = normalize_latex(latex)
-
-    pmml = latex2pmml(latex, OPTIONS)
+    if lang == 'latex':
+        query = normalize_latex(query)
+        query = latex2pmml(query, OPTIONS)
+    elif lang == 'pmml':
+        query = xmlclean(query)
 
     res = {}
 
@@ -48,7 +51,7 @@ def get_score(latex):
 
     time_begin = datetime.datetime.utcnow()
 
-    for term_raw, term_gen, level in xml2terms(pmml):
+    for term_raw, term_gen, level in xml2terms(query):
 
         index_term = {
                 cnraw: term_raw,
@@ -60,7 +63,8 @@ def get_score(latex):
             index_item = db[index].find_one({'term': term})
             if index_item:
                 count_pmml = len(index_item['index'])
-                for pmml_id, attrs in index_item['index'].iteritems():
+                for page_pmml_id, attrs in index_item['index'].iteritems():
+                    page_id, pmml_id = page_pmml_id.split('+')
                     fileds = {'term_count': 1}
                     term_count = db.pmml.find_one(
                         ObjectId(pmml_id), fileds
@@ -89,12 +93,12 @@ def get_score(latex):
 
     return res, time_end - time_begin
 
-def get_result(query, offset=0, count=10):
-    """docstring for get_resule"""
+def get_result(query, offset=0, count=10, lang='latex'):
+    """docstring for get_result"""
     res = {'entry_list': []}
 
     try:
-        score_list, res['time'] = get_score(query)
+        score_list, res['time'] = get_score(query, lang)
         res['time'] = str(res['time']) + 's'
         res['offset'] = offset
         res['count'] = count
@@ -103,11 +107,13 @@ def get_result(query, offset=0, count=10):
                 'query': query,
                 'offset': offset - count,
                 'count': count,
+                'lang': lang,
             })
         res['next'] = urllib.urlencode({
             'query': query,
             'offset': offset + count,
             'count': count,
+            'lang': lang,
         })
         for pmml_id, score in score_list[offset : offset + count]:
 
