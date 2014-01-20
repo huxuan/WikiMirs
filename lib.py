@@ -20,6 +20,9 @@ IGNORE_LATEX_LIST = [r'\\qquad', r'\\quad', r'\\\\\[\w+\]', r'\\\\', r'\\!',
 IGNORE_SPACE_LIST = ['^\s+', '\s+$']
 IGNORE_MULTI_SPACE = '\s+'
 
+MATH_PATTERN = re.compile(r'<math>(.*?)</math>',
+    re.MULTILINE | re.IGNORECASE | re.DOTALL)
+
 def normalize_content(content):
     """docstring for normalize_content"""
     content = re.sub(IGNORE_MULTI_SPACE, ' ', content)
@@ -73,3 +76,15 @@ def xml2terms(xml):
             if stack:
                 stack[-1] = stack[-1].nextSibling
 
+def xmlclean(xml):
+    """docstring for xmlclean"""
+    # Filter tags' attributes
+    xml = re.sub('(<[^>\s]+?)\ [^>]*?(\/?>)', r'\1\2', xml)
+    # Filter whitespace characters
+    xml = re.sub('\s+', '', xml)
+
+    res = MATH_PATTERN.search(xml)
+    if res:
+        return res.group(1)
+    else:
+        return None

@@ -10,22 +10,7 @@ Description: A wrapper of LaTeXML
 import re
 from subprocess import Popen, PIPE, STDOUT
 
-WHITESPACE_PATTERN = re.compile(r'\s+', re.MULTILINE)
-MATH_PATTERN = re.compile(r'<math.*?>(.*?)</math>',
-    re.MULTILINE | re.IGNORECASE | re.DOTALL)
-
-def xmlclean(xml):
-    """docstring for xmlclean"""
-    # Filter tags' attributes
-    xml = re.sub('(<[^>\s]+?)\ [^>]*?(\/?>)', r'\1\2', xml)
-    # Filter whitespace characters
-    xml = re.sub('\s+', '', xml)
-
-    res = MATH_PATTERN.search(xml)
-    if res:
-        return res.group(1)
-    else:
-        return None
+from lib import xmlclean
 
 def latexmlmath(texmath, options=[]):
     """docstring for latexmlmath"""
