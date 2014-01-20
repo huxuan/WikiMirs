@@ -87,4 +87,4 @@ def xmlclean(xml):
     if res:
         return res.group(1)
     else:
-        return None
+        return xml
