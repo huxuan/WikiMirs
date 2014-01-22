@@ -37,7 +37,7 @@ def index_get():
         if 'api' in request.query.search:
             return res
         else:
-            return template('result', res=res, query=query)
+            return template('result', res=res, query=query, lang=lang)
     else:
         return template('index')
 

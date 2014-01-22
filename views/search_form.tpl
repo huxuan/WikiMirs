@@ -20,8 +20,16 @@
                 <td class="td_textarea">
                     Language:
                     <select id="lang" name="lang">
+                        % if get('lang') == 'pmml':
+                        <option value="pmml" selected="selected">(Presentation) MathML</option>
+                        % else:
                         <option value="pmml">(Presentation) MathML</option>
+                        % end
+                        % if get('lang') == 'latex':
+                        <option value="latex" selected="selected">LaTeX</option>
+                        % else:
                         <option value="latex">LaTeX</option>
+                        % end
                     </select>
                     <input class="button" type="submit" name="search" value="search"></input>
                 </td>

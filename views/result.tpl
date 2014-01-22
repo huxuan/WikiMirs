@@ -35,4 +35,4 @@
 % if res.get('error'):
 <div class="msg"> Error: {{res['error']}}</div>
 % end
-% rebase base query=get('query', '')
+% rebase base query=get('query', ''), lang=get('lang', 'latex')

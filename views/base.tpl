@@ -66,7 +66,7 @@
                 % end
             </center>
         </div>
-        % include search_form query=get('query', '')
+        % include search_form query=get('query', ''), lang=get('lang', 'latex')
         % include
     </body>
 </html>

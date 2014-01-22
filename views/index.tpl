@@ -18,4 +18,4 @@
         <a href="http://www.google.com/chrome"><b>Chrome</b></a>
     for best experience
 </div>
-% rebase base show_title=True
+% rebase base show_title=True, lang=get('lang','latex')
