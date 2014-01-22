@@ -51,7 +51,11 @@ def term_decompress(term):
 
 def xml2terms(xml):
     """docstring for xml2terms"""
-    root = parseString(xml).documentElement
+    try:
+        root = parseString(xml).documentElement
+    except:
+        xml = xml.join(['<mrow>', '</mrow>'])
+        root = parseString(xml).documentElement
     stack = [root, ]
 
     while stack:

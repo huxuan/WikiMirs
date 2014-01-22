@@ -3,21 +3,26 @@
     <center>
         <table>
             <tr>
-                <th>Input/Copy LaTeX Code Here</th>
+                <th>Input/Copy MathML/LaTeX Code Here</th>
                 <th>Rendered by MathJax</th>
             </tr>
             <tr>
                 <td class="td_textarea">
                     % if get('query'):
-                    <textarea class="textarea" name='query'>{{get('query', 'abc')}}</textarea>
+                    <textarea class="textarea" name='query'>{{get('query', '')}}</textarea>
                     % else:
-                    <textarea class="textarea" name='query'>\frac{\pi}{4}=\cfrac{1}{1+\cfrac{1^2}{2+\cfrac{3^2}{2+\cfrac{5^2}{2+\ddots}}}}=1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\dots</textarea>
+                    <textarea class="textarea" name='query'><mi>a</mi><mo>+</mo><mi>b</mi></textarea>
                     % end
                 </td>
                 <td class="td_formula"><div class="formula"></div></td>
             </tr>
             <tr>
                 <td class="td_textarea">
+                    Language:
+                    <select id="lang" name="lang">
+                        <option value="pmml">(Presentation) MathML</option>
+                        <option value="latex">LaTeX</option>
+                    </select>
                     <input class="button" type="submit" name="search" value="search"></input>
                 </td>
             </tr>

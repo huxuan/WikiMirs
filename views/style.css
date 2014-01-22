@@ -39,6 +39,10 @@ td.td_textarea{
     overflow: hidden;
 }
 
+.formula {
+    max-width: 500px;
+}
+
 .hiddendiv {
     display: none;
     white-space: pre-wrap;

@@ -15,7 +15,13 @@
                 txt.addClass('txtstuff');
                 hiddenDiv.addClass('hiddendiv textarea');
 
-                formulaDiv.html('\\[' + content + '\\]');
+                lang = document.getElementById("lang");
+                if (lang.value == 'pmml') {
+                    formulaDiv.html('<math>' + content + '</math>');
+                }
+                else if (lang.value == 'latex') {
+                    formulaDiv.html('\\[' + content + '\\]');
+                }
                 MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                 content = content.replace(/\n/g, '<br>');
                 hiddenDiv.html(content + '<br>');
@@ -25,7 +31,12 @@
 
                     content = $(this).val();
 
-                    formulaDiv.html('\\[' + content + '\\]');
+                    if (lang.value == 'pmml') {
+                        formulaDiv.html('<math>' + content + '</math>');
+                    }
+                    else if (lang.value == 'latex') {
+                        formulaDiv.html('\\[' + content + '\\]');
+                    }
                     MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
                     content = content.replace(/\n/g, '<br>');
@@ -48,7 +59,7 @@
                     <a href="http://www.wikipedia.org/" target="_blank">
                         Wikipedia
                     </a>
-                    by LaTeX
+                    by MathML/LaTeX
                 </h2>
                 % else:
                 <h2><a href="">WikiMirs</a></h2>
