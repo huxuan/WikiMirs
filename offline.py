@@ -35,8 +35,20 @@ DATA = 'data/Wikipedia-%s.xml' % config.VERSION
 MATH_PATTERN = re.compile(r'<math>(.*?)</math>', re.I | re.M | re.S)
 
 LATEX_HACK = [
-    u"\\begin{pmatrix} \\frac{1}{c}\\frac{\\partial \\phi}{\\partial t'} & \\frac{\\partial \\phi}{\\partial x'} & \\frac{\\partial \\phi}{\\partial y'} & \\frac{\\partial \\phi}{\\partial z'}\\end{pmatrix} = \\begin{pmatrix} \\frac{1}{c}\\frac{\\partial \\phi}{\\partial t} & \\frac{\\partial \\phi}{\\partial x} & \\frac{\\partial \\phi}{\\partial y} & \\frac{\\partial \\phi}{\\partial z}\\end{pmatrix}\\begin{pmatrix}\n\\gamma & -\\beta\\gamma & 0 & 0\\\\\n-\\beta\\gamma & \\gamma & 0 & 0\\\\\n0 & 0 & 1 & 0\\\\\n0 & 0 & 0 & 1\n\\end{pmatrix} \\,.",
-    u'\\begin{align}\n{\\mathbf{A=LDL}^\\mathrm{T}} & =\n\\begin{pmatrix}\n \\mathbf I & 0 & 0 \\\\\n \\mathbf L_{21} & \\mathbf I & 0 \\\\\n \\mathbf L_{31} & \\mathbf L_{32} & \\mathbf I\\\\\n\\end{pmatrix}\n\\begin{pmatrix}\n \\mathbf D_1 & 0 & 0 \\\\\n 0 & \\mathbf D_2 & 0 \\\\\n 0 & 0 & \\mathbf D_3\\\\\n\\end{pmatrix}\n\\begin{pmatrix}\n \\mathbf I & \\mathbf L_{21}^\\mathrm T & \\mathbf L_{31}^\\mathrm T \\\\\n 0 & \\mathbf I & \\mathbf L_{32}^\\mathrm T \\\\\n 0 & 0 & \\mathbf I\\\\\n\\end{pmatrix} \\\\\n& = \\begin{pmatrix}\n \\mathbf D_1 &   &(\\mathrm{symmetric})   \\\\\n \\mathbf L_{21} \\mathbf D_1 & \\mathbf L_{21} \\mathbf D_1 \\mathbf L_{21}^\\mathrm T + \\mathbf D_2& \\\\\n \\mathbf L_{31} \\mathbf D_1 & \\mathbf  L_{31} \\mathbf D_{1} \\mathbf L_{21}^\\mathrm T + \\mathbf  L_{32} \\mathbf D_2 & \\mathbf L_{31} \\mathbf D_1 \\mathbf L_{31}^\\mathrm T + \\mathbf L_{32} \\mathbf D_2 \\mathbf L_{32}^\\mathrm T + \\mathbf D_3\n\\end{pmatrix}\n\\end{align}\n',
+    # u"\\begin{pmatrix} \\frac{1}{c}\\frac{\\partial \\phi}{\\partial t'} & \\frac{\\partial \\phi}{\\partial x'} & \\frac{\\partial \\phi}{\\partial y'} & \\frac{\\partial \\phi}{\\partial z'}\\end{pmatrix} = \\begin{pmatrix} \\frac{1}{c}\\frac{\\partial \\phi}{\\partial t} & \\frac{\\partial \\phi}{\\partial x} & \\frac{\\partial \\phi}{\\partial y} & \\frac{\\partial \\phi}{\\partial z}\\end{pmatrix}\\begin{pmatrix}\n\\gamma & -\\beta\\gamma & 0 & 0\\\\\n-\\beta\\gamma & \\gamma & 0 & 0\\\\\n0 & 0 & 1 & 0\\\\\n0 & 0 & 0 & 1\n\\end{pmatrix} \\,.",
+    # u'\\begin{align}\n{\\mathbf{A=LDL}^\\mathrm{T}} & =\n\\begin{pmatrix}\n \\mathbf I & 0 & 0 \\\\\n \\mathbf L_{21} & \\mathbf I & 0 \\\\\n \\mathbf L_{31} & \\mathbf L_{32} & \\mathbf I\\\\\n\\end{pmatrix}\n\\begin{pmatrix}\n \\mathbf D_1 & 0 & 0 \\\\\n 0 & \\mathbf D_2 & 0 \\\\\n 0 & 0 & \\mathbf D_3\\\\\n\\end{pmatrix}\n\\begin{pmatrix}\n \\mathbf I & \\mathbf L_{21}^\\mathrm T & \\mathbf L_{31}^\\mathrm T \\\\\n 0 & \\mathbf I & \\mathbf L_{32}^\\mathrm T \\\\\n 0 & 0 & \\mathbf I\\\\\n\\end{pmatrix} \\\\\n& = \\begin{pmatrix}\n \\mathbf D_1 &   &(\\mathrm{symmetric})   \\\\\n \\mathbf L_{21} \\mathbf D_1 & \\mathbf L_{21} \\mathbf D_1 \\mathbf L_{21}^\\mathrm T + \\mathbf D_2& \\\\\n \\mathbf L_{31} \\mathbf D_1 & \\mathbf  L_{31} \\mathbf D_{1} \\mathbf L_{21}^\\mathrm T + \\mathbf  L_{32} \\mathbf D_2 & \\mathbf L_{31} \\mathbf D_1 \\mathbf L_{31}^\\mathrm T + \\mathbf L_{32} \\mathbf D_2 \\mathbf L_{32}^\\mathrm T + \\mathbf D_3\n\\end{pmatrix}\n\\end{align}\n',
+]
+
+TERM_GEN_HACK = [
+    # u'eJyzyS0uTbKzyc3UBxJ5djb6EAIkCAB9uwjq',
+    # u'eJyzyS0uTbKzyc3UBxF2NvoQAiQIAH1ICOA=',
+    # u'eJyzyU0tKsovsrPJLUmtKLGz0YfTEHEAxJQL2Q==',
+    # u'eJyzyS0uLbCzyc3UBxJ5djb6EAIkCAB/GQkG',
+    # u'eJyzyS0uLbCzyc3UBxF2NvoQAiQIAH6mCPw=',
+]
+
+TERM_RAW_HACK = [
+    # u'eJyzyS0uLbCzyc3UBxJ5dkY2+kASSIBEAYa3CTg=',
 ]
 
 class WikiMathHandler(ContentHandler):
@@ -118,6 +130,8 @@ def work(latex, page_id, title):
         })
         term_count = 0
         for term_raw, term_gen, level in xml2terms(pmml):
+            if term_raw in TERM_RAW_HACK or term_gen in TERM_GEN_HACK:
+                continue
             attr = {'level': level}
             modification = {
                 '$inc': {'count': 1},
