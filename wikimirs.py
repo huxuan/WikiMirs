@@ -65,6 +65,12 @@ def mathjax_get(filepath):
     """docstring for mathjax_get"""
     return static_file(filepath, root='MathJax')
 
+@get('/<filepath:re:data/.+\.pdf>')
+def data_get(filepath):
+    """docstring for data_get"""
+    print 'Work!', filepath
+    return static_file(filepath, root='.')
+
 @get('/jquery-1.8.3.min.js')
 def jquery_get():
     """docstring for jquery_get"""
