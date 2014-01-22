@@ -42,7 +42,7 @@
         <div class="title">
             <center>
                 % if get('show_title'):
-                <h1> Welcome to <a href="">WikiMirs!</a></h1>
+                <h1> Welcome to <a href="">WikiMirs</a>!</h1>
                 <h2>
                     Another way to search mathematical formula on
                     <a href="http://www.wikipedia.org/" target="_blank">
