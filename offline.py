@@ -72,7 +72,7 @@ class WikiMathHandler(ContentHandler):
 
             # Update self.pmml_count when the count has an evident increase
             pmml_count = db.pmml.count()
-            if pmml_count - self.pmml_count > 100:
+            if pmml_count - self.pmml_count >= 100:
                 self.pmml_count = pmml_count
                 print pmml_count
 
