@@ -90,6 +90,8 @@ class WikiMathHandler(ContentHandler):
             # print len(latex_list)
             for latex in latex_list:
                 self.pool.apply_async(work, (latex, self.page_id, self.title))
+                # if db.pmml.count() >= 100000:
+                #     raise Exception("EXP FINISH!")
 
     def characters(self, content):
         """docstring for characters"""
@@ -161,6 +163,9 @@ def main():
         print exc.getMessage()
         pass
     except KeyboardInterrupt:
+        pass
+    except Exception, exc:
+        print exc
         pass
 
     time_end = datetime.datetime.utcnow()
