@@ -106,37 +106,37 @@ def get_result(query, offset=0, count=10, lang='latex'):
     """docstring for get_result"""
     res = {'entry_list': []}
 
-    try:
-        score_list, res['time'] = get_score(query, lang)
-        res['time'] = str(res['time']) + 's'
-        res['offset'] = offset
-        res['count'] = count
-        if offset >= count:
-            res['previous'] = urllib.urlencode({
-                'query': query,
-                'offset': offset - count,
-                'count': count,
-                'lang': lang,
-            })
-        res['next'] = urllib.urlencode({
+    # try:
+    score_list, res['time'] = get_score(query, lang)
+    res['time'] = str(res['time']) + 's'
+    res['offset'] = offset
+    res['count'] = count
+    if offset >= count:
+        res['previous'] = urllib.urlencode({
             'query': query,
-            'offset': offset + count,
+            'offset': offset - count,
             'count': count,
             'lang': lang,
         })
-        for pmml_id, score in score_list[offset : offset + count]:
+    res['next'] = urllib.urlencode({
+        'query': query,
+        'offset': offset + count,
+        'count': count,
+        'lang': lang,
+    })
+    for pmml_id, score in score_list[offset : offset + count]:
 
-            fileds = {'pmml': 1, 'page_id': 1}
-            pmml_item = db.pmml.find_one(ObjectId(pmml_id), fileds)
-            fileds = {'title': 1}
-            title = db.page.find_one(pmml_item['page_id'], fileds)['title']
-            res['entry_list'].append({
-                'pmml': pmml_item['pmml'],
-                'score': score,
-                'title': title,
-            })
-    except Exception, exc:
-        res['error'] = str(exc)
+        fileds = {'pmml': 1, 'page_id': 1}
+        pmml_item = db.pmml.find_one(ObjectId(pmml_id), fileds)
+        fileds = {'title': 1}
+        title = db.page.find_one(pmml_item['page_id'], fileds)['title']
+        res['entry_list'].append({
+            'pmml': pmml_item['pmml'],
+            'score': score,
+            'title': title,
+        })
+    # except Exception, exc:
+    #     res['error'] = str(exc)
 
     return res
 
