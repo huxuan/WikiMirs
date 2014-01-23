@@ -11,7 +11,7 @@
                     % if get('query'):
                     <textarea class="textarea" name='query'>{{get('query', '')}}</textarea>
                     % else:
-                    <textarea class="textarea" name='query'><mi>a</mi><mo>+</mo><mi>b</mi></textarea>
+                    <textarea class="textarea" name='query'>x^n+y^n=z^n</textarea>
                     % end
                 </td>
                 <td class="td_formula"><div class="formula"></div></td>
