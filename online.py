@@ -45,8 +45,9 @@ def get_score(query, lang='latex'):
     elif lang == 'pmml':
         query = xmlclean(query)
 
-    res = {}
-
+    res = []
+    score_pmml = {}
+    pmml_page = {}
     score_max = 0
 
     time_begin = datetime.datetime.utcnow()
@@ -65,6 +66,7 @@ def get_score(query, lang='latex'):
                 count_pmml = len(index_item['index'])
                 for page_pmml_id, attrs in index_item['index'].iteritems():
                     page_id, pmml_id = page_pmml_id.split('+')
+                    pmml_page[pmml_id] = page_id
                     fileds = {'term_count': 1}
                     term_count = db.pmml.find_one(
                         ObjectId(pmml_id), fileds
@@ -78,18 +80,25 @@ def get_score(query, lang='latex'):
                     )
                     score_nor = NOR_VALUE[index]
 
-                    res[pmml_id] = res.get(pmml_id, 0) + \
+                    score_pmml[pmml_id] = score_pmml.get(pmml_id, 0) + \
                         score_tf * score_idf * score_level * score_nor
-                    score_max = max(score_max, res[pmml_id])
-
-    time_end = datetime.datetime.utcnow()
+                    score_max = max(score_max, score_pmml[pmml_id])
 
     bottom = score_max / 20
-    res = filter(lambda x: x[1] > bottom, res.iteritems())
-    while len(res) > 100:
-        bottom *= 1.1
-        res = filter(lambda x: x[1] > bottom, res)
-    res = sorted(res, key=itemgetter(1), reverse=True)
+    score_pmml = filter(lambda x: x[1] > bottom, score_pmml.iteritems())
+    while len(score_pmml) > 200:
+        bottom *= 1.01
+        score_pmml = filter(lambda x: x[1] > bottom, score_pmml)
+    score_pmml = sorted(score_pmml, key=itemgetter(1), reverse=True)
+
+    page_ids = set()
+    for pmml_id, score in score_pmml:
+        page_id = pmml_page[pmml_id]
+        if page_id not in page_ids:
+            page_ids.add(page_id)
+            res.append((pmml_id, score))
+
+    time_end = datetime.datetime.utcnow()
 
     return res, time_end - time_begin
 
