@@ -1,5 +1,7 @@
 run:
 	python wikimirs.py
+deploy:
+	nohup python wikimirs.py &
 offline:
 	-rm error.log
 	python offline.py
